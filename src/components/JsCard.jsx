@@ -21,7 +21,7 @@ const JsCard = () => {
         {
             name: "Metro Ticket System",
             image: Metro,
-            url: "/projects/Metro Ticket System/metroTicket.html",
+            url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Metro%20Ticket%20System/metroTicket.html",
         },
         {
             name: "Flipkart Cart System",
