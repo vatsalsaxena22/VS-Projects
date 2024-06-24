@@ -76,3 +76,15 @@ footer a:hover{
     justify-content: space-around;
     gap: 25px;
 }
+
+.d-no{
+    display: none !important;
+}
+@media screen and (max-width: 991.5px) {
+    .d-no{
+        display: block !important;
+    }
+    .m-no{
+        display: none !important;
+    }
+}
