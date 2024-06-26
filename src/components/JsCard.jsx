@@ -11,7 +11,7 @@ const JsCard = () => {
         {
             name: "Calculator Web App",
             image: Calculator,
-            url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Calculator%20Web/calc.html",
+            url: "/Calculator Web/calc.html",
         },
         {
             name: "Stone Paper Scissors",
@@ -21,17 +21,17 @@ const JsCard = () => {
         {
             name: "Metro Ticket System",
             image: Metro,
-            url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Metro%20Ticket%20System/metroTicket.html",
+            url: "/Metro Ticket System/metroTicket.html",
         },
         {
             name: "Flipkart Cart System",
             image: Flipkart,
-            url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Flipkart%20Clone/index.html",
+            url: "/Flipkart Clone/index.html",
         },
         {
             name: "Voting Machine",
             image: Voting,
-            url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Voting%20Machine/index.html",
+            url: "/Voting Machine/index.html",
         },
     ])
 
