@@ -11,7 +11,7 @@ const JsCard = () => {
         {
             name: "Calculator Web App",
             image: Calculator,
-            url: "/Calculator Web/calc.html",
+            url: "/Calculator Web/index.html",
         },
         {
             name: "Stone Paper Scissors",

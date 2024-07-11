@@ -25,7 +25,7 @@ const HtmlCssCard = () => {
     {
       name: "NCERT Books Webpage Clone",
       image: NcertBooks,
-      url: "/NCERT Website Mobile Clone/ncert.html",
+      url: "/NCERT Website Mobile Clone/index.html",
     },
     {
       name: "Netflix Homepage Clone (For Desktop)",
