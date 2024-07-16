@@ -25,12 +25,12 @@ const HtmlCssCard = () => {
     {
       name: "NCERT Books Webpage Clone",
       image: NcertBooks,
-      url: "/NCERT Website Mobile Clone/index.html",
+      url: "https://vatsalsaxena22.github.io/myPortfolio/projects/NCERT%20Clone/ncert.html",
     },
     {
       name: "Netflix Homepage Clone (For Desktop)",
       image: Netflix,
-      url: "/Netflix Clone (HTML + CSS)/index.html",
+      url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Netflix%20Clone/index.html",
     },
   ]);
 
