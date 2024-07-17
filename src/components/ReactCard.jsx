@@ -13,7 +13,7 @@ const ReactCard = () => {
         {
             name: "Weather App",
             image: WeatherApp,
-            url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Weather%20App/index.html",
+            url: "https://vatsalsaxena22.github.io/myPortfolio/projects/Weather%20App/",
         },
     ])
 
