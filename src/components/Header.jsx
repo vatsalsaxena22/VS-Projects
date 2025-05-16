@@ -1,5 +1,5 @@
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
-import logo from "../assets/1.png"
+import logo from "../assets/logo-transparent.png"
 
 export default function Header() {
   return (
@@ -7,7 +7,7 @@ export default function Header() {
       <Container>
         <Navbar.Brand href="/">
           <Image src={logo} style={{maxWidth: "50px"}} />
-          <span className='fw-bold'>VS Projects</span>
+          <span className='fw-bold ms-2'>VS Projects</span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>

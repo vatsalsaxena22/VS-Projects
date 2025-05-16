@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import logo from "../assets/1.png"
+import logo from "../assets/logo-transparent.png"
 import { Github, Linkedin, Facebook, Instagram } from 'react-bootstrap-icons';
 
 
@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="p-3 border-top">
       <div className='container d-flex gap-5 justify-content-between align-items-center flex-wrap'>
         <div>
-          <img src={logo} style={{width: "100px"}} alt="" />
+          <img src={logo} className='py-4' style={{width: "75px"}} alt="" />
           <div>
             <h2>VS Projects</h2>
             <p>A Showcase of all my Projects.</p>
