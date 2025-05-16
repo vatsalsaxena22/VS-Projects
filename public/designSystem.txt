@@ -1,0 +1,5 @@
+font-family: Inter;
+primary-color: #233dff;
+light-color: #ffffff;
+dark-color: #000000;
+border-radius: 25px;
