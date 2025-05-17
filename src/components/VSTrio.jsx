@@ -47,25 +47,36 @@ const ProjectCard = ({ title, imageSrc, altText, link }) => {
 };
 
 const VSTrio = () => {
+  const imageModules = import.meta.glob("../assets/VS Trio/*.png", {
+    eager: true,
+  });
+
+  const images = Object.fromEntries(
+    Object.entries(imageModules).map(([path, mod]) => {
+      const fileName = path.split("/").pop();
+      return [fileName, mod.default];
+    })
+  );
+
   const projects = [
     {
       id: 1,
       title: "VS Portfolio",
-      imageSrc: "/src/assets/VS Trio/VS Portfolio.png",
+      imageSrc: images["VS Portfolio.png"],
       altText: "VS Portfolio Project",
       link: "https://vatsalsaxena22.github.io/",
     },
     {
       id: 2,
       title: "VS Projects",
-      imageSrc: "/src/assets/VS Trio/VS Projects.png",
+      imageSrc: images["VS Projects.png"],
       altText: "VS Projects Project",
       link: "https://vatsalsaxena-projects.netlify.app",
     },
     {
       id: 3,
       title: "VS Works",
-      imageSrc: "/src/assets/Coming soon.png",
+      imageSrc: images["Coming soon.png"],
       altText: "VS Works Project",
       link: "#",
     },
