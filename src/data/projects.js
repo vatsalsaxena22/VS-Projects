@@ -1,3 +1,14 @@
+const imageModules = import.meta.glob('../assets/Project Imgs/*.png', {
+  eager: true,
+});
+
+const images = Object.fromEntries(
+  Object.entries(imageModules).map(([path, mod]) => {
+    const fileName = path.split("/").pop();
+    return [fileName, mod.default];
+  })
+);
+
 const projects = [
   {
     id: 1,
@@ -7,7 +18,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/alphabet-v2.0/",
     githubLink: "https://github.com/vatsalsaxena22/alphabet-v2.0",
     featured: true,
-    img: "/src/assets/Project Imgs/Alphabet v2.0.png",
+    img: images['Alphabet v2.0.png'],
   },
   {
     id: 2,
@@ -17,7 +28,7 @@ const projects = [
     liveLink: "https://github.com/vatsalsaxena22/first-school",
     githubLink: "https://vatsalsaxena22.github.io/first-school/",
     featured: true,
-    img: "/src/assets/Project Imgs/First School.png",
+    img: images["First School.png"],
   },
   {
     id: 3,
@@ -27,7 +38,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/NCERT%20Clone/",
     githubLink: "",
     featured: true,
-    img: "/src/assets/Project Imgs/NCERT Clone.png",
+    img: images["NCERT Clone.png"],
   },
   {
     id: 4,
@@ -37,7 +48,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Netflix%20Clone/",
     githubLink: "",
     featured: true,
-    img: "/src/assets/Project Imgs/Netflix Clone.png",
+    img: images["Netflix Clone.png"],
   },
   {
     id: 5,
@@ -47,7 +58,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Calculator%20Web/",
     githubLink: "",
     featured: true,
-    img: "/src/assets/Project Imgs/Calculator App.png",
+    img: images["Calculator App.png"],
   },
   {
     id: 6,
@@ -57,7 +68,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/first-school/spsGame.html",
     githubLink: "",
     featured: true,
-    img: "/src/assets/Project Imgs/SPS.png",
+    img: images["SPS.png"],
   },
   {
     id: 7,
@@ -67,7 +78,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Voting%20Machine/",
     githubLink: "",
     featured: true,
-    img: "/src/assets/Project Imgs/Voting Machine.png",
+    img: images["Voting Machine.png"],
   },
   {
     id: 8,
@@ -77,7 +88,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Metro%20Ticket%20System/",
     githubLink: "",
     featured: true,
-    img: "/src/assets/Project Imgs/Metro Ticket.png",
+    img: images["Metro Ticket.png"],
   },
   {
     id: 9,
@@ -87,7 +98,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Flipkart%20Clone/",
     githubLink: "",
     featured: true,
-    img: "/src/assets/Project Imgs/Flipkart.png",
+    img: images["Flipkart.png"],
   },
 ];
 
