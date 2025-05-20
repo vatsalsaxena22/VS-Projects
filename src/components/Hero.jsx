@@ -14,7 +14,7 @@ export default function Hero() {
             <h6 className="main-badge">Hello there,</h6>
             <h1>Welcome to VS Projects</h1>
             <p className="text-body-secondary">
-              A showcase of all my web projects built with care, code, and
+              A showcase of all my projects built with care, code, and
               creativity. From front-end finesse to back-end logic, here are the
               projects that reflect my journey in web development.
             </p>

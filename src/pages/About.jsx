@@ -1,27 +1,10 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import myPic from "../assets/Profile.jpg";
 import VSTrio from "../components/VSTrio";
+import skills from '../data/skills'
 
 export default function About() {
-  const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "W3.css",
-    "W3.js",
-    "Git",
-    "GitHub",
-    "Hostinger",
-    "Google Sites",
-    "Blogger",
-    "WordPress",
-    "Bootstrap 5",
-    "Tailwind.css",
-    "React.js",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-  ];
+
 
   return (
     <section id="about" className="py-5">

@@ -8,10 +8,10 @@ export default function Footer() {
     <footer className="p-3 border-top">
       <div className='container d-flex gap-5 justify-content-between align-items-center flex-wrap'>
         <div>
-          <img src={logo} className='py-4' style={{width: "75px"}} alt="" />
+          <img src={logo} className='py-4' style={{width: "60px"}} alt="logo" />
           <div>
             <h2>VS Projects</h2>
-            <p>A Showcase of all my Projects.</p>
+            <p>A Showcase of all my projects.</p>
           </div>
           <div className="logos fs-3">
             <a href="https://github.com/vatsalsaxena22" target='_blank' className='me-3'><Github/></a>
@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
       </div>
       <Container className="text-center pt-5">
-        <p>© {new Date().getFullYear()} VS Projects. All rights reserved. Developed & Designed by <a target='_blank' href="https://vatsalsaxena22.github.io/">Vatsal Saxena</a>.</p>
+        <p>© {new Date().getFullYear()} VS Projects. All rights reserved. Developed & Designed by <a target='_blank' style={{lineBreak: "anywhere"}} href="https://vatsalsaxena22.github.io/">Vatsal Saxena</a></p>
       </Container>
     </footer>
   );

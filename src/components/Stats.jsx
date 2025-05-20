@@ -2,6 +2,15 @@ import React from 'react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import projects from "../data/projects";
+import skills from '../data/skills';
+
+const getNumOfProjects = ()=>{
+  return projects.length;
+}
+
+const getNumOfSkills = ()=>{
+  return skills.length;
+}
 
 const getDaysOfExperience = () => {
   const startDate = new Date('2023-10-01');
@@ -11,13 +20,9 @@ const getDaysOfExperience = () => {
   return diffDays;
 };
 
-const getNumOfProjects = ()=>{
-  return projects.length;
-}
-
 const stats = [
   { end: getNumOfProjects(), suffix: '+', label: 'Projects Completed' },
-  { end: 17, suffix: '+', label: 'Programming Skills' },
+  { end: getNumOfSkills(), suffix: '+', label: 'Programming Skills' },
   { end: getDaysOfExperience(), suffix: '+', label: 'Days of Experience' },
   { end: 100, suffix: '%', label: 'Passion for Web Development' },
 ];
