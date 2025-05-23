@@ -3,7 +3,7 @@ import logo from "../assets/logo-transparent.png"
 
 export default function Header() {
   return (
-    <Navbar expand="lg" bg="white" variant="light" sticky="top" className='p-lg-3 p-md-2 p-sm-1 border-bottom'>
+    <Navbar expand="lg" bg="white" variant="light" sticky="top" className='p-1 border-bottom'>
       <Container>
         <Navbar.Brand href="/">
           <Image src={logo} style={{maxWidth: "40px"}} />

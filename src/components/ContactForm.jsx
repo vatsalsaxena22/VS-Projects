@@ -1,52 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
-const API_KEY = import.meta.env.VITE_API_KEY;
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    formName: "",
+    formEmail: "",
     message: "",
   });
+
   const [status, setStatus] = useState("");
-  const [statusType, setStatusType] = useState("");
+  const [statusType, setStatusType] = useState(""); // success or error
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus("Sending...");
-    setStatusType("loading");
 
-    try {
-      const res = await fetch(BACKEND_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": API_KEY,
-        },
-        body: JSON.stringify(formData),
-      });
+    const serviceID = "service_uu2xf55";
+    const templateID = "template_znhg5hj";
+    const publicKey = "4T-nuIusr_WSXK11D";
 
-      const data = await res.json();
-      if (res.ok) {
+    emailjs.send(serviceID, templateID, formData, publicKey)
+      .then(() => {
         setStatus("Message sent successfully!");
         setStatusType("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus(data.message || "Failed to send message.");
+        setFormData({ formName: "", formEmail: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        setStatus("Failed to send message. Please try again.");
         setStatusType("error");
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus("Something went wrong.");
-      setStatusType("error");
-    }
+      });
   };
 
   return (
@@ -55,33 +43,25 @@ const ContactForm = () => {
         <Form.Control
           type="text"
           placeholder="Name"
-          name="name"
+          name="formName"
           required
-          value={formData.name}
+          value={formData.formName}
           onChange={handleChange}
         />
       </FloatingLabel>
 
-      <FloatingLabel
-        controlId="formEmail"
-        label="Email address"
-        className="mb-3"
-      >
+      <FloatingLabel controlId="formEmail" label="Email address" className="mb-3">
         <Form.Control
           type="email"
           placeholder="Email"
-          name="email"
+          name="formEmail"
           required
-          value={formData.email}
+          value={formData.formEmail}
           onChange={handleChange}
         />
       </FloatingLabel>
 
-      <FloatingLabel
-        controlId="formMessage"
-        label="Your Message"
-        className="mb-3"
-      >
+      <FloatingLabel controlId="formMessage" label="Your Message" className="mb-3">
         <Form.Control
           as="textarea"
           placeholder="Your Message"
@@ -98,7 +78,12 @@ const ContactForm = () => {
           Send Message
         </Button>
       </div>
-      {status && <p className={`status-message ${statusType}`}>{status}</p>}
+
+      {status && (
+        <p className={`status-message ${statusType}`}>
+          {status}
+        </p>
+      )}
     </Form>
   );
 };
