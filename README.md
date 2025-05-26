@@ -1,12 +1,77 @@
-# React + Vite
+# VS Projects
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### A showcase of all my projects built with care, code, and creativity.
 
-Currently, two official plugins are available:
+[🌐 Live Site](https://vsprojects.vercel.app) • [📁 GitHub Repo](https://github.com/vatsalsaxena22/VS-Projects)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ About
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**VS Projects** is a modern portfolio website that highlights my journey as a web developer. It features a curated collection of personal and professional projects, each crafted with precision and purpose. From elegant front-end designs to robust back-end solutions, this site reflects my passion for building efficient and user-friendly web experiences.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [React.js](https://reactjs.org/)
+- **Styling:** [Bootstrap 5](https://getbootstrap.com/)
+- **Bundler:** [Vite](https://vitejs.dev/)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## 📁 Folder Structure
+
+    VS-Projects/
+    ├── public/ # Static assets
+    ├── src/
+    │ ├── assets/ # Images and icons
+    │ ├── components/ # Reusable components (Navbar, Cards, etc.)
+    │ ├── data/ # JSON/project data
+    │ ├── pages/ # Home, Projects, About, Contact
+    │ ├── App.jsx # Root component
+    │ └── main.jsx # Vite entry file
+    ├── .gitignore
+    ├── index.html
+    ├── package.json
+    └── README.md
+
+
+---
+
+## 📸 Features
+
+- ✅ Clean and responsive layout
+- ✅ Project cards with live links and GitHub repos
+- ✅ Contact section for easy collaboration
+- ✅ Optimized images and components
+- ✅ Easy to maintain and expand
+
+---
+
+## 🚀 Getting Started
+
+To run the project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/vatsalsaxena22/VS-Projects.git
+   cd VS-Projects
+
+2. **Install dependencies**
+   ```bash
+    npm install
+   
+3. **Start the development server**
+    ```bash
+    npm run dev
+Open http://localhost:5173 to view it in the browser.
+
+---
+
+## 🧠 Author
+
+### [Vatsal Saxena](vatsalsaxena.github.io/)
+
+
