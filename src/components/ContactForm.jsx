@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import emailjs from "@emailjs/browser";
-
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,35 +10,79 @@ const ContactForm = () => {
   });
 
   const [status, setStatus] = useState("");
-  const [statusType, setStatusType] = useState(""); // success or error
+  const [statusType, setStatusType] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Auto clear status message
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => {
+        setStatus("");
+        setStatusType("");
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serviceID = "service_uu2xf55";
-    const templateID = "template_znhg5hj";
-    const publicKey = "4T-nuIusr_WSXK11D";
+    // Trim validation
+    if (
+      !formData.formName.trim() ||
+      !formData.formEmail.trim() ||
+      !formData.message.trim()
+    ) {
+      setStatus("Please fill all fields.");
+      setStatusType("error");
+      return;
+    }
 
-    emailjs.send(serviceID, templateID, formData, publicKey)
-      .then(() => {
-        setStatus("Message sent successfully!");
-        setStatusType("success");
-        setFormData({ formName: "", formEmail: "", message: "" });
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-        setStatus("Failed to send message. Please try again.");
-        setStatusType("error");
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    try {
+      setLoading(true);
+
+      await emailjs.send(
+        serviceID,
+        templateID,
+        formData,
+        publicKey
+      );
+
+      setStatus("Message sent successfully!");
+      setStatusType("success");
+      setFormData({
+        formName: "",
+        formEmail: "",
+        message: "",
       });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("Failed to send message. Please try again.");
+      setStatusType("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FloatingLabel controlId="formName" label="Name" className="mb-3">
+      <FloatingLabel
+        controlId="formName"
+        label="Name"
+        className="mb-3"
+      >
         <Form.Control
           type="text"
           placeholder="Name"
@@ -50,7 +93,11 @@ const ContactForm = () => {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="formEmail" label="Email address" className="mb-3">
+      <FloatingLabel
+        controlId="formEmail"
+        label="Email address"
+        className="mb-3"
+      >
         <Form.Control
           type="email"
           placeholder="Email"
@@ -61,7 +108,11 @@ const ContactForm = () => {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="formMessage" label="Your Message" className="mb-3">
+      <FloatingLabel
+        controlId="formMessage"
+        label="Your Message"
+        className="mb-3"
+      >
         <Form.Control
           as="textarea"
           placeholder="Your Message"
@@ -74,8 +125,13 @@ const ContactForm = () => {
       </FloatingLabel>
 
       <div className="text-center">
-        <Button className="main-btn" type="submit">
-          Send Message
+        <Button
+          className="main-btn"
+          type="submit"
+          disabled={loading}
+          aria-label="Send Message"
+        >
+          {loading ? "Sending..." : "Send Message"}
         </Button>
       </div>
 

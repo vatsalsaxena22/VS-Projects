@@ -1,56 +1,87 @@
 import React from "react";
+
+import {
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap";
+
+import { ArrowRight } from "react-bootstrap-icons";
+
+import { NavLink } from "react-router-dom";
+
 import projects from "../data/projects";
-import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap";
+import ProjectCard from "./ProjectCard";
 
 const FeaturedProjects = () => {
-  const featured = projects.filter((project) => project.featured).slice(-3);
+  const featured = projects
+    .filter((project) => project.featured)
+    .slice(-3);
 
   return (
-    <section className="py-5">
+    <section className="py-5 py-lg-6 bg-light">
+
       <Container>
-        <h2 className="text-center p-5">Featured Projects</h2>
-        <Row>
+
+        {/* SECTION HEADER */}
+        <Row className="justify-content-center text-center mb-5">
+
+          <Col lg={7}>
+
+            <span className="main-badge mb-3 d-inline-block">
+              Featured Work
+            </span>
+
+            <h2 className="fw-bold display-6 mb-3">
+              Selected Projects
+            </h2>
+
+            <p className="text-body-secondary fs-5">
+              A collection of projects that highlight
+              my skills in frontend development,
+              full-stack applications, and modern UI design.
+            </p>
+
+          </Col>
+
+        </Row>
+
+        {/* PROJECTS */}
+        <Row className="g-4">
+
           {featured.map((project) => (
-            <Col key={project.id} md={6} lg={4} className="mb-4">
-              <Card className="h-100 shadow-sm">
-                <Card.Body>
-                  <img className="border" src={project.img} alt={project.title} width={"100%"} />
-                  <Card.Title className="my-2">{project.title}</Card.Title>
-                  <div className="my-2">
-                    {project.tech.map((tech, idx) => (
-                      <Badge key={idx} bg="none" className="me-1 main-badge">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  <Card.Text>{project.description}</Card.Text>
-                  <Button
-                    href={project.liveLink}
-                    target="_blank"
-                    className="main-btn"
-                  >
-                    Live
-                  </Button>
-                  {project.githubLink && (
-                    <Button
-                      href={project.githubLink}
-                      target="_blank"
-                      className="main-btn btn-white"
-                    >
-                      Code
-                    </Button>
-                  )}
-                </Card.Body>
-              </Card>
+            <Col
+              key={project.id}
+              md={6}
+              lg={4}
+            >
+              <ProjectCard {...project} />
             </Col>
           ))}
+
         </Row>
-        <div className="text-center p-5">
-          <a href="/projects" className="main-btn btn-white">
-            All Projects
-          </a>
+
+        {/* CTA */}
+        <div className="text-center mt-5">
+
+          <NavLink
+            to="/projects"
+            className="
+              main-btn
+              btn-white
+              d-inline-flex
+              align-items-center
+              gap-2
+            "
+          >
+            View All Projects
+            <ArrowRight size={16} />
+          </NavLink>
+
         </div>
+
       </Container>
+
     </section>
   );
 };
