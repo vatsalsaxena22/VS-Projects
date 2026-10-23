@@ -5,154 +5,146 @@ import { NavLink } from "react-router-dom";
 import heroImg from "../assets/programming.svg";
 
 export default function Hero() {
-  return (
-    <section className="hero-section py-5 py-lg-6 overflow-hidden">
+return (
+<section className="py-5 overflow-hidden bg-body">
+<Container className="py-lg-5">
+<Row className="align-items-center gy-5 gx-lg-5">
 
-      <Container>
+      {/* LEFT CONTENT */}
+      <Col
+        xs={12}
+        lg={6}
+        className="text-center text-lg-start"
+      >
+        <div className="d-flex flex-column align-items-center align-items-lg-start">
 
-        <Row className="align-items-center g-5">
+          {/* BADGE */}
+          <div className="d-inline-flex align-items-center gap-2 px-3 py-2 mb-4 rounded-pill border bg-body-tertiary text-body-secondary small fw-semibold">
+            <Stars size={15} className="text-primary" />
+            Turning ideas into digital experiences
+          </div>
 
-          {/* LEFT CONTENT */}
-          <Col
-            xs={12}
-            lg={6}
-            className="
-              text-center
-              text-lg-start
-              d-flex
-              flex-column
-              justify-content-center
-              align-items-center
-              align-items-lg-start
-            "
-          >
+          {/* HEADING */}
+          <h1 className="display-3 fw-bold lh-1 mb-4">
+            Welcome to
+            <br />
+            <span className="text-primary">
+              VS Projects.
+            </span>
+          </h1>
 
-            {/* BADGE */}
-            <div className="d-flex align-items-center gap-2 mb-3">
-              <span className="main-badge d-inline-flex align-items-center gap-2">
-                <Stars size={14} />
-                Hello there,
+          {/* DESCRIPTION */}
+          <p className="fs-5 text-body-secondary lh-lg mb-4">
+            A showcase of ideas, experiments, and digital products.
+            Explore my journey in building modern websites,
+            powerful applications, and meaningful web experiences.
+          </p>
+
+          {/* CTA BUTTONS */}
+          <div className="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mb-4">
+
+            <NavLink
+              to="/projects"
+              className="btn btn-primary btn-lg rounded-3 d-inline-flex align-items-center justify-content-center gap-2 px-4"
+            >
+              Explore Projects
+              <ArrowRight size={18} />
+            </NavLink>
+
+            <NavLink
+              to="/about"
+              className="btn btn-outline-secondary btn-lg rounded-3 d-inline-flex align-items-center justify-content-center gap-2 px-4"
+            >
+              <CodeSlash size={18} />
+              About Me
+            </NavLink>
+
+          </div>
+
+          {/* TECH STACK */}
+          <div className="d-flex flex-column align-items-center align-items-lg-start gap-2 mt-2">
+
+            <span className="small text-body-secondary fw-semibold text-uppercase">
+              Technologies & Expertise
+            </span>
+
+            <div className="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2">
+              {["React.js", "Bootstrap 5", "Node.js", "PHP"].map(
+                (tech) => (
+                  <span
+                    key={tech}
+                    className="badge rounded-pill bg-body-tertiary border text-body-secondary px-3 py-2 fw-medium"
+                  >
+                    {tech}
+                  </span>
+                )
+              )}
+            </div>
+
+          </div>
+
+        </div>
+      </Col>
+
+      {/* RIGHT VISUAL */}
+      <Col xs={12} lg={6}>
+        <div className="position-relative d-flex align-items-center justify-content-center">
+
+          {/* BACKGROUND DECORATION */}
+          <div
+            className="position-absolute top-50 start-50 translate-middle rounded-circle bg-primary opacity-10"
+            style={{
+              width: "min(75vw, 380px)",
+              height: "min(75vw, 380px)",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* GRID / VISUAL WRAPPER */}
+          <div className="position-relative w-100 text-center">
+
+            <Image
+              src={heroImg}
+              alt="Programming and web development illustration"
+              fluid
+              fetchPriority="high"
+              className="position-relative"
+              style={{
+                maxHeight: "500px",
+                objectFit: "contain",
+              }}
+            />
+
+            {/* FLOATING LABEL */}
+            <div className="position-absolute top-0 start-0 translate-middle-y d-none d-sm-flex align-items-center gap-2 bg-body border rounded-4 shadow-sm px-3 py-2">
+              <span className="d-flex align-items-center justify-content-center bg-primary-subtle text-primary rounded-3 p-2">
+                <CodeSlash size={20} />
+              </span>
+              <div className="text-start">
+                <div className="small fw-bold text-body">
+                  Creative Development
+                </div>
+                <div className="text-body-secondary small">
+                  Design. Develop. Deploy.
+                </div>
+              </div>
+            </div>
+
+            {/* BOTTOM LABEL */}
+            <div className="position-absolute bottom-0 end-0 d-none d-sm-flex align-items-center gap-2 bg-body border rounded-4 shadow-sm px-3 py-2">
+              <Stars size={20} className="text-primary" />
+              <span className="small fw-semibold text-body">
+                Built with curiosity
               </span>
             </div>
 
-            {/* HEADING */}
-            <h1 className="display-4 fw-bold lh-sm mb-4">
-              Welcome to{" "}
-              <span className="text-main">
-                VS Projects
-              </span>
-            </h1>
+          </div>
+        </div>
+      </Col>
 
-            {/* DESCRIPTION */}
-            <p className="text-body-secondary fs-5 mb-4">
-              A curated showcase of my web development journey —
-              featuring modern interfaces, scalable applications,
-              and creative digital experiences built with care,
-              code, and creativity.
-            </p>
+    </Row>
+  </Container>
+</section>
 
-            {/* BUTTONS */}
-            <div className="
-              d-flex
-              flex-wrap
-              gap-3
-              justify-content-center
-              justify-content-lg-start
-              mb-4
-            ">
-
-              <NavLink
-                to="/projects"
-                className="main-btn d-inline-flex align-items-center gap-2"
-              >
-                Explore Projects
-                <ArrowRight size={18} />
-              </NavLink>
-
-              <NavLink
-                to="/about"
-                className="main-btn btn-white d-inline-flex align-items-center gap-2"
-              >
-                <CodeSlash size={18} />
-                About Me
-              </NavLink>
-
-            </div>
-
-            {/* STATS / TAGS */}
-            <div className="
-              d-flex
-              flex-wrap
-              gap-3
-              justify-content-center
-              justify-content-lg-start
-            ">
-
-              <div className="px-3 py-2 bg-light border rounded-4 small fw-medium">
-                React.js
-              </div>
-
-              <div className="px-3 py-2 bg-light border rounded-4 small fw-medium">
-                Bootstrap 5
-              </div>
-
-              <div className="px-3 py-2 bg-light border rounded-4 small fw-medium">
-                Full-Stack Development
-              </div>
-
-            </div>
-
-          </Col>
-
-          {/* RIGHT IMAGE */}
-          <Col
-            xs={12}
-            lg={6}
-            className="text-center position-relative"
-          >
-
-            {/* IMAGE WRAPPER */}
-            <div className="position-relative">
-
-              {/* BG SHAPE */}
-              <div
-                className="
-                  position-absolute
-                  top-50
-                  start-50
-                  translate-middle
-                  rounded-circle
-                  bg-primary
-                  opacity-10
-                "
-                style={{
-                  width: "350px",
-                  height: "350px",
-                  filter: "blur(40px)",
-                  zIndex: 0,
-                }}
-              />
-
-              {/* IMAGE */}
-              <Image
-                src={heroImg}
-                alt="Programming Illustration"
-                fluid
-                className="position-relative z-1"
-                style={{
-                  maxHeight: "500px",
-                  objectFit: "contain",
-                }}
-              />
-
-            </div>
-
-          </Col>
-
-        </Row>
-
-      </Container>
-
-    </section>
-  );
+);
 }

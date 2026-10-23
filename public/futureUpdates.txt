@@ -3,3 +3,4 @@
 3. Add SEO Meta Management - react-helmet-async
 4. Add Filtering
 5. Improve Mobile Navbar
+6. Better Responsiveness
