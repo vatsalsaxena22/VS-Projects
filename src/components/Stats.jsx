@@ -1,66 +1,53 @@
-import React from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  CodeSlash,
-  Folder2Open,
-  CalendarCheck,
-  LightningCharge,
-} from "react-bootstrap-icons";
+  faFolderOpen,
+  faCode,
+  faCalendarCheck,
+  faBolt,
+} from "@fortawesome/free-solid-svg-icons";
 
 import projects from "../data/projects";
 import skills from "../data/skills";
 
-const getNumOfProjects = () => {
-  return projects.length;
-};
-
-const getNumOfSkills = () => {
-  return skills.length;
-};
-
 const getDaysOfExperience = () => {
-  const startDate = new Date("2023-10-01");
-  const today = new Date();
+  const startDate = Date.UTC(2023, 9, 1);
+  const now = new Date();
 
-  const diffTime = today - startDate;
+  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
 
-  const diffDays = Math.floor(
-    diffTime / (1000 * 60 * 60 * 24)
-  );
-
-  return diffDays;
+  return Math.floor((today - startDate) / 86400000);
 };
 
 const stats = [
   {
-    end: getNumOfProjects(),
+    end: projects.length,
     suffix: "+",
     label: "Projects Completed",
-    icon: <Folder2Open />,
+    icon: faFolderOpen,
   },
   {
-    end: getNumOfSkills(),
+    end: skills.length,
     suffix: "+",
     label: "Programming Skills",
-    icon: <CodeSlash />,
+    icon: faCode,
   },
   {
     end: getDaysOfExperience(),
     suffix: "+",
-    label: "Days of Experience",
-    icon: <CalendarCheck />,
+    label: "Days Since My Journey Began",
+    icon: faCalendarCheck,
   },
   {
     end: 100,
     suffix: "%",
     label: "Passion for Development",
-    icon: <LightningCharge />,
+    icon: faBolt,
   },
 ];
 
-const Stats = () => {
+export default function Stats() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -68,107 +55,57 @@ const Stats = () => {
 
   return (
     <section
-      className="py-5 py-lg-6 bg-light position-relative overflow-hidden"
       ref={ref}
+      className="relative overflow-hidden bg-gray-50 py-16 sm:py-20 lg:py-24"
     >
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-14">
+          <span className="main-badge mb-4 inline-block">My Journey</span>
 
-      <div className="container">
+          <h2 className="mb-4 text-3xl leading-tight font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Numbers That Reflect My Growth
+          </h2>
 
-        {/* SECTION HEADER */}
-        <div className="row justify-content-center text-center mb-5">
-
-          <div className="col-lg-7">
-
-            <span className="main-badge mb-3 d-inline-block">
-              My Journey
-            </span>
-
-            <h2 className="fw-bold display-6 mb-3">
-              Numbers That Reflect My Growth
-            </h2>
-
-            <p className="text-body-secondary fs-5">
-              A quick overview of my experience,
-              technical skills, and development journey
-              as a full-stack web developer.
-            </p>
-
-          </div>
-
+          <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+            A quick overview of my experience, technical skills, and development
+            journey as a full-stack web developer.
+          </p>
         </div>
 
-        {/* STATS */}
-        <div className="row g-4">
-
-          {stats.map((stat, index) => (
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+          {stats.map(({ end, suffix, label, icon }) => (
             <div
-              key={index}
-              className="col-6 col-lg-3"
+              key={label}
+              className="flex h-full flex-col items-center rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-shadow hover:shadow-md sm:p-7"
             >
-
-              <div
-                className="
-                  bg-white
-                  border
-                  rounded-4
-                  shadow-sm
-                  h-100
-                  p-4
-                  text-center
-                  position-relative
-                "
-              >
-
-                {/* ICON */}
-                <div
-                  className="
-                    d-inline-flex
-                    align-items-center
-                    justify-content-center
-                    bg-main
-                    bg-opacity-10
-                    text-light
-                    rounded-4
-                    mb-4
-                  "
-                  style={{
-                    width: "70px",
-                    height: "70px",
-                    fontSize: "1.8rem",
-                  }}
-                >
-                  {stat.icon}
-                </div>
-
-                {/* NUMBER */}
-                <h2 className="fw-bold display-6 mb-2 stats">
-
-                  {inView && (
-                    <CountUp
-                      end={stat.end}
-                      suffix={stat.suffix}
-                      duration={3}
-                    />
-                  )}
-
-                </h2>
-
-                {/* LABEL */}
-                <p className="text-body-secondary mb-0 fw-medium">
-                  {stat.label}
-                </p>
-
+              <div className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-[#233dff]/10 text-[#233dff] sm:size-17.5">
+                <FontAwesomeIcon
+                  icon={icon}
+                  className="text-2xl sm:text-[28px]"
+                  aria-hidden="true"
+                />
               </div>
 
+              <h3 className="mb-2 text-3xl font-bold tracking-tight text-main sm:text-4xl">
+                {inView ? (
+                  <CountUp
+                    end={end}
+                    suffix={suffix}
+                    duration={2.5}
+                    separator=","
+                  />
+                ) : (
+                  "0"
+                )}
+              </h3>
+
+              <p className="mb-0 text-sm leading-6 font-medium text-gray-600 sm:text-base">
+                {label}
+              </p>
             </div>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
-};
-
-export default Stats;
+}

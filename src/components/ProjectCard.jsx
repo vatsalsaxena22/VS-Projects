@@ -1,121 +1,79 @@
-import {
-  Card,
-  Button,
-  Badge,
-} from "react-bootstrap";
 
-import {
-  ArrowUpRight,
-  Github,
-} from "react-bootstrap-icons";
-
-const ProjectCard = ({
-  id,
+export default function ProjectCard({
   title,
   description,
-  tech,
+  tech = [],
   liveLink,
   githubLink,
   img,
-}) => {
+}) {
   return (
-    <Card
-      key={id}
-      className="
-        h-100
-        border-0
-        shadow-sm
-        rounded-4
-        overflow-hidden
-      "
-    >
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
       {/* IMAGE */}
-      <div className="bg-light border-bottom">
-
-        <Card.Img
-          variant="top"
+      <div className="overflow-hidden border-b border-gray-100 bg-gray-50">
+        <img
           src={img}
-          alt={title}
-          className="img-fluid"
-          style={{
-            height: "220px",
-            objectFit: "cover",
-          }}
+          alt={`${title} project preview`}
+          loading="lazy"
+          decoding="async"
+          className="h-55 w-full object-cover transition-transform duration-500 hover:scale-105"
         />
-
       </div>
 
       {/* CONTENT */}
-      <Card.Body className="p-4 d-flex flex-column">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
 
         {/* TECH STACK */}
-        <div className="d-flex flex-wrap gap-2 mb-3">
-
+        <div className="mb-4 flex flex-wrap gap-2">
           {tech.map((tag, idx) => (
-            <Badge
-              key={idx}
-              bg="none"
-              className="main-badge fw-normal"
+            <span
+              key={`${tag}-${idx}`}
+              className="main-badge font-normal"
             >
               {tag}
-            </Badge>
+            </span>
           ))}
-
         </div>
 
         {/* TITLE */}
-        <Card.Title className="fw-bold fs-4 mb-3">
+        <h3 className="mb-3 text-xl font-bold leading-snug text-gray-900 sm:text-2xl">
           {title}
-        </Card.Title>
+        </h3>
 
         {/* DESCRIPTION */}
-        <Card.Text className="text-body-secondary small mb-4">
+        <p className="mb-6 text-sm leading-7 text-gray-600">
           {description}
-        </Card.Text>
+        </p>
 
         {/* BUTTONS */}
-        <div className="mt-auto d-flex gap-2 flex-wrap">
-
-          <Button
-            href={liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              main-btn
-              d-inline-flex
-              align-items-center
-              gap-2
-            "
-          >
-            Live
-            <ArrowUpRight size={15} />
-          </Button>
+        <div className="mt-auto flex flex-wrap gap-3">
+          {liveLink && (
+            <a
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="main-btn inline-flex items-center gap-2"
+              aria-label={`View ${title} live project`}
+            >
+              Live <span aria-hidden="true">↗</span>
+            </a>
+          )}
 
           {githubLink && (
-            <Button
+            <a
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="
-                main-btn
-                btn-white
-                d-inline-flex
-                align-items-center
-                gap-2
-              "
+              className="main-btn btn-white inline-flex items-center gap-2"
+              aria-label={`View ${title} source code`}
             >
-              <Github size={15} />
-              Code
-            </Button>
+              Code <span aria-hidden="true">↗</span>
+            </a>
           )}
-
         </div>
 
-      </Card.Body>
-
-    </Card>
+      </div>
+    </article>
   );
-};
-
-export default ProjectCard;
+}

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
 
 :root {
   --main-color: #233dff;
@@ -6,9 +8,6 @@
   --light: #fff;
   --dark: #000;
   --transition: 0.3s ease;
-
-  /* Bootstrap Override */
-  --bs-primary: #233dff;
 }
 
 html {
@@ -34,7 +33,7 @@ body {
 
 .main-btn {
   background-color: var(--main-color);
-  padding: 5px 10px;
+  padding: 10px 20px;
   margin: 5px 10px 5px 0;
   color: var(--light);
   border-radius: 5px;
@@ -129,3 +128,7 @@ footer a {
 footer a:hover {
   color: var(--main-color);
 }
+
+
+/* -------------------- */
+

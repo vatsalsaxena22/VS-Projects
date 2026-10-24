@@ -1,16 +1,3 @@
-import React from "react";
-
-import {
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
-
-import {
-  ExclamationTriangle,
-  ArrowLeft,
-} from "react-bootstrap-icons";
-
 import { NavLink } from "react-router-dom";
 
 const NotFound = () => {

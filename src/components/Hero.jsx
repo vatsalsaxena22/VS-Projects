@@ -1,170 +1,91 @@
-import { ArrowRight, CodeSlash, Stars, Layers } from "react-bootstrap-icons";
+
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faWandMagicSparkles,
+  faArrowRight,
+  faCode,
+} from "@fortawesome/free-solid-svg-icons";
 
 import heroImg from "../assets/programming.svg";
 
+const techStack = ["React.js", "Tailwind CSS", "Full-Stack Development"];
+
 export default function Hero() {
-  const technologies = ["React.js", "Node.js", "PHP", "Bootstrap"];
-
   return (
-    <section className="position-relative overflow-hidden bg-body">
-      <div className="container py-5 lg:py-5">
-        <div className="row align-items-center g-5 lg:g-5">
+    <section className="hero-section overflow-hidden py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+        {/* CONTENT */}
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          {/* BADGE */}
+          <span className="main-badge mb-5 inline-flex items-center gap-2">
+            <FontAwesomeIcon
+              icon={faWandMagicSparkles}
+              aria-hidden="true"
+            />
+            Hello there,
+          </span>
 
-          {/* LEFT CONTENT */}
-          <div className="col-12 lg:col-6">
-            <div className="text-center lg:text-start">
+          {/* HEADING */}
+          <h1 className="mb-5 text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Welcome to{" "}
+            <span className="text-main">VS Projects</span>
+          </h1>
 
-              {/* BADGE */}
-              <div className="d-inline-flex align-items-center gap-2 rounded-pill border px-3 py-2 mb-4 bg-body">
-                <Stars size={15} className="text-primary" />
-                <span className="small fw-semibold text-body">
-                  Ideas. Experiments. Creations.
-                </span>
-              </div>
+          {/* DESCRIPTION */}
+          <p className="mb-7 max-w-xl text-base leading-8 text-gray-600 sm:text-lg">
+            A curated showcase of my web development journey,
+            featuring modern interfaces, scalable applications,
+            and creative digital experiences built with care
+            and code.
+          </p>
 
-              {/* HEADING */}
-              <h1 className="display-2 fw-bold lh-1 mb-4">
-                Building
-                <br />
-                <span className="text-primary">
-                  Digital Ideas.
-                </span>
-              </h1>
+          {/* ACTIONS */}
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+            <NavLink
+              to="/projects"
+              className="main-btn inline-flex items-center gap-2"
+            >
+              Explore Projects
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                aria-hidden="true"
+              />
+            </NavLink>
 
-              {/* DESCRIPTION */}
-              <p className="fs-5 text-body-secondary lh-lg mb-4 mx-auto lg:mx-0">
-                Welcome to VS Projects — my digital playground
-                for building modern websites, powerful applications,
-                and creative web experiences.
-              </p>
-
-              {/* CTA */}
-              <div className="d-flex flex-wrap justify-content-center lg:justify-content-start gap-3 mb-5">
-
-                <NavLink
-                  to="/projects"
-                  className="btn theme-primary btn-lg rounded-pill px-4 py-3 d-inline-flex align-items-center justify-content-center gap-2"
-                >
-                  Explore Projects
-                  <ArrowRight size={18} />
-                </NavLink>
-
-                <NavLink
-                  to="/about"
-                  className="btn theme-neutral btn-lg rounded-pill px-4 py-3 d-inline-flex align-items-center justify-content-center gap-2"
-                >
-                  <CodeSlash size={18} />
-                  About Me
-                </NavLink>
-
-              </div>
-
-              {/* TECHNOLOGIES */}
-              <div>
-                <div className="d-flex align-items-center justify-content-center lg:justify-content-start gap-2 mb-3">
-                  <span className="small fw-bold text-body-secondary text-uppercase">
-                    Built with
-                  </span>
-                  <span className="border-top flex-grow-1" style={{ maxWidth: "50px" }} />
-                </div>
-
-                <div className="d-flex flex-wrap justify-content-center lg:justify-content-start gap-2">
-                  {technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="badge rounded-pill border bg-body text-body-secondary px-3 py-2 fw-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-            </div>
+            <NavLink
+              to="/about"
+              className="main-btn btn-white inline-flex items-center gap-2"
+            >
+              <FontAwesomeIcon
+                icon={faCode}
+                aria-hidden="true"
+              />
+              About Me
+            </NavLink>
           </div>
 
-          {/* RIGHT VISUAL */}
-          <div className="col-12 lg:col-6">
-            <div className="position-relative mx-auto" style={{ maxWidth: "600px" }}>
-
-              {/* VISUAL FRAME */}
-              <div className="position-relative overflow-hidden rounded-5 border bg-body-tertiary p-3 sm:p-4 lg:p-5">
-
-                {/* DECORATIVE SHAPES */}
-                <div
-                  className="position-absolute top-0 end-0 translate-middle rounded-circle bg-primary opacity-10"
-                  style={{ width: "240px", height: "240px" }}
-                  aria-hidden="true"
-                />
-
-                <div
-                  className="position-absolute bottom-0 start-0 translate-middle rounded-circle bg-primary opacity-10"
-                  style={{ width: "200px", height: "200px" }}
-                  aria-hidden="true"
-                />
-
-                {/* TOP LABEL */}
-                <div className="position-relative d-flex align-items-center justify-content-between gap-2 mb-3">
-                  <span className="d-inline-flex align-items-center gap-2 small fw-semibold text-body">
-                    <Layers size={16} className="text-primary" />
-                    THE CREATIVE LAB
-                  </span>
-
-                  <Stars size={20} className="text-primary" />
-                </div>
-
-                {/* ILLUSTRATION */}
-                <div className="position-relative text-center">
-                  <img
-                    src={heroImg}
-                    alt="Programming and web development illustration"
-                    fetchPriority="high"
-                    className="img-fluid"
-                    style={{
-                      maxHeight: "410px",
-                      objectFit: "contain",
-                    }}
-                  />
-                </div>
-
-                {/* BOTTOM INFO CARD */}
-                <div className="position-relative rounded-4 border bg-body p-3 sm:p-4 shadow-sm">
-                  <div className="d-flex align-items-center gap-3">
-
-                    <div className="rounded-3 bg-primary-subtle text-primary p-3 d-flex align-items-center justify-content-center">
-                      <CodeSlash size={24} />
-                    </div>
-
-                    <div>
-                      <div className="fw-bold text-body">
-                        Think. Build. Create.
-                      </div>
-                      <div className="small text-body-secondary">
-                        Turning concepts into experiences.
-                      </div>
-                    </div>
-
-                    <div className="ms-auto d-none sm:d-block">
-                      <ArrowRight size={20} className="text-primary" />
-                    </div>
-
-                  </div>
-                </div>
-
-              </div>
-
-              {/* CAPTION */}
-              <div className="d-flex justify-content-center lg:justify-content-end mt-3">
-                <span className="small text-body-secondary">
-                  <span className="fw-bold text-primary">VS</span>
-                  {" "}Projects / Personal portfolio
-                </span>
-              </div>
-
-            </div>
+          {/* TECH STACK */}
+          <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-xl border border-gray-200 bg-white px-3 py-2 text-xs font-medium text-gray-700"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
+        </div>
 
+        {/* HERO IMAGE */}
+        <div className="flex items-center justify-center">
+          <img
+            src={heroImg}
+            alt="Programming illustration representing web development"
+            className="h-auto w-full max-w-xl object-contain"
+            fetchPriority="high"
+          />
         </div>
       </div>
     </section>

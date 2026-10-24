@@ -1,203 +1,225 @@
-import { Container, Row, Col, Image } from "react-bootstrap";
-import {
-  Github,
-  Linkedin,
-  Facebook,
-  Instagram,
-} from "react-bootstrap-icons";
 
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedin,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 import logo from "../assets/logo-transparent.png";
 
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/vatsalsaxena22",
+    icon: faGithub,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/vatsalsaxena/",
+    icon: faLinkedin,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/vatsal.saxena/",
+    icon: faInstagram,
+  },
+];
+
+const techLinks = [
+  {
+    label: "VS Portfolio",
+    href: "https://vatsalsaxena22.github.io/",
+    external: true,
+  },
+  { label: "VS Projects", to: "/" },
+  { label: "VS Works", href: null },
+];
+
+const menuLinks = [
+  { label: "Home", to: "/" },
+  { label: "Projects", to: "/projects" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
+
+const linkClass =
+  "group inline-flex items-center gap-2 text-sm text-gray-500 no-underline transition-colors duration-200 hover:text-[#233dff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#233dff]";
+
 export default function Footer() {
   return (
-    <footer className="border-top bg-white">
+    <footer className="relative overflow-hidden border-t border-gray-200 bg-white">
+      {/* TOP ACCENT */}
+      <div className="h-1 w-full bg-gradient-to-r from-[#233dff] via-[#6879ff] to-transparent" />
 
-      <Container className="py-5">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
 
-        <Row className="gy-5 justify-content-between">
+        {/* MAIN FOOTER */}
+        <div className="grid grid-cols-1 gap-10 py-12 sm:py-14 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 lg:py-16">
 
           {/* BRAND */}
-          <Col lg={5}>
-
-            <div className="d-flex align-items-center gap-3 mb-4">
-
-              <div className="">
-                <Image
-                  src={logo}
-                  alt="VS Projects Logo"
-                  width={55}
-                  height={55}
-                  className="object-fit-contain"
-                />
-              </div>
+          <div className="lg:col-span-5">
+            <NavLink
+              to="/"
+              aria-label="VS Projects home"
+              className="mb-5 inline-flex items-center gap-3 no-underline"
+            >
+              <img
+                src={logo}
+                alt=""
+                width={54}
+                height={54}
+                loading="lazy"
+                className="size-14 shrink-0 object-contain"
+              />
 
               <div>
-                <h2 className="fw-bold mb-1">
+                <h2 className="text-xl font-extrabold tracking-tight text-gray-900">
                   VS Projects
                 </h2>
-
-                <p className="text-muted mb-0">
-                  A showcase of all my projects built
-                  with care, code, and creativity.
+                <p className="text-xs font-medium tracking-wide text-gray-500">
+                  BUILD • CREATE • INNOVATE
                 </p>
               </div>
+            </NavLink>
 
+            <p className="mb-6 max-w-md text-sm leading-7 text-gray-500 sm:text-base">
+              A curated showcase of personal, freelance, and professional
+              projects built with creativity, clean code, and modern
+              technology.
+            </p>
+
+            {/* SOCIAL LINKS */}
+            <div className="flex flex-wrap items-center gap-3">
+              {socialLinks.map(({ label, href, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit my ${label} profile`}
+                  title={label}
+                  className="group inline-flex size-11 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-lg text-gray-600 no-underline transition-all duration-200 hover:-translate-y-1 hover:border-[#233dff]/30 hover:bg-[#233dff]/5 hover:text-[#233dff] hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#233dff]"
+                >
+                  <FontAwesomeIcon icon={icon} aria-hidden="true" />
+                </a>
+              ))}
             </div>
+          </div>
 
-            {/* SOCIALS */}
-            <div className="logos d-flex align-items-center gap-3 fs-4">
-
-              <a
-                href="https://github.com/vatsalsaxena22"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-light border rounded-3 p-2 d-flex align-items-center justify-content-center"
-              >
-                <Github />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/vatsalsaxena/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-light border rounded-3 p-2 d-flex align-items-center justify-content-center"
-              >
-                <Linkedin />
-              </a>
-
-              <a
-                href="https://www.facebook.com/vatsalya.saxena.3/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-light border rounded-3 p-2 d-flex align-items-center justify-content-center"
-              >
-                <Facebook />
-              </a>
-
-              <a
-                href="https://www.instagram.com/vatsal.saxena/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-light border rounded-3 p-2 d-flex align-items-center justify-content-center"
-              >
-                <Instagram />
-              </a>
-
-            </div>
-
-          </Col>
-
-          {/* LINKS */}
-          <Col xs={6} md={3} lg={2}>
-
-            <h5 className="fw-bold mb-4">
+          {/* TECH TRIO */}
+          <div className="lg:col-span-3">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-gray-900">
               My Tech Trio
-            </h5>
+            </h3>
 
-            <div className="d-flex flex-column gap-3">
+            <div className="flex flex-col items-start gap-4">
+              {techLinks.map((link) => {
+                if (link.to) {
+                  return (
+                    <NavLink
+                      key={link.label}
+                      to={link.to}
+                      className={linkClass}
+                    >
+                      <span>{link.label}</span>
+                    </NavLink>
+                  );
+                }
 
-              <a
-                href="https://vatsalsaxena22.github.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-decoration-none"
-              >
-                VS Portfolio
-              </a>
+                if (link.href) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className={linkClass}
+                    >
+                      {link.label}
+                      {link.external && (
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          className="text-[10px] opacity-60"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </a>
+                  );
+                }
 
-              <NavLink
-                to="/"
-                className="text-decoration-none"
-              >
-                VS Projects
-              </NavLink>
-
-              <a
-                href="#"
-                className="text-decoration-none"
-              >
-                VS Works
-              </a>
-
+                return (
+                  <span
+                    key={link.label}
+                    className="inline-flex items-center gap-2 text-sm text-gray-400"
+                    title="Coming soon"
+                  >
+                    {link.label}
+                    <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide">
+                      Soon
+                    </span>
+                  </span>
+                );
+              })}
             </div>
+          </div>
 
-          </Col>
+          {/* QUICK LINKS */}
+          <div className="lg:col-span-4">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-gray-900">
+              Quick Navigation
+            </h3>
 
-          {/* MENU */}
-          <Col xs={6} md={3} lg={2}>
-
-            <h5 className="fw-bold mb-4">
-              Menu
-            </h5>
-
-            <div className="d-flex flex-column gap-3">
-
-              <NavLink
-                to="/"
-                className="text-decoration-none"
-              >
-                Home
-              </NavLink>
-
-              <NavLink
-                to="/projects"
-                className="text-decoration-none"
-              >
-                Projects
-              </NavLink>
-
-              <NavLink
-                to="/about"
-                className="text-decoration-none"
-              >
-                About
-              </NavLink>
-
-              <NavLink
-                to="/contact"
-                className="text-decoration-none"
-              >
-                Contact
-              </NavLink>
-
+            <div className="grid grid-cols-2 gap-x-5 gap-y-4">
+              {menuLinks.map(({ label, to }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  end={to === "/"}
+                  className={({ isActive }) =>
+                    `group inline-flex items-center gap-2 text-sm no-underline transition-colors duration-200 ${
+                      isActive
+                        ? "font-semibold text-[#233dff]"
+                        : "text-gray-500 hover:text-[#233dff]"
+                    }`
+                  }
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="text-[10px] opacity-50 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                  {label}
+                </NavLink>
+              ))}
             </div>
+          </div>
+        </div>
 
-          </Col>
+        {/* COPYRIGHT */}
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-gray-200 py-6 text-center sm:flex-row sm:text-left">
+          <p className="text-xs leading-6 text-gray-500 sm:text-sm">
+            © {new Date().getFullYear()} VS Projects. All rights reserved.
+          </p>
 
-        </Row>
-
-        {/* BOTTOM */}
-        <div className="border-top mt-5 pt-4 text-center">
-
-          <p className="text-muted mb-0 small">
-            © {new Date().getFullYear()} VS Projects.
-            All rights reserved.
-
-            <br className="d-md-none" />
-
-            <span className="mx-1 d-none d-md-inline">
-              •
-            </span>
-
-            Developed & Designed by{" "}
-
+          <p className="text-xs leading-6 text-gray-500 sm:text-sm">
+            Designed & Developed by{" "}
             <a
               href="https://vatsalsaxena22.github.io/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ lineBreak: "anywhere" }}
-              className="fw-semibold text-decoration-none"
+              className="font-semibold text-gray-800 underline-offset-4 transition-colors hover:text-[#233dff] hover:underline"
             >
               Vatsal Saxena
             </a>
-
           </p>
-
         </div>
-
-      </Container>
+      </div>
     </footer>
   );
 }

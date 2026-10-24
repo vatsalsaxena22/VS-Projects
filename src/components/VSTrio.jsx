@@ -1,116 +1,62 @@
-import React from "react";
-
-import {
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
 
 import ProjectCard from "./ProjectCard";
 
-const VSTrio = () => {
-  const imageModules = import.meta.glob(
-    "../assets/VS Trio/*.png",
-    {
-      eager: true,
-    }
-  );
+const imageModules = import.meta.glob("../assets/VS Trio/*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
-  const images = Object.fromEntries(
-    Object.entries(imageModules).map(
-      ([path, mod]) => {
-        const fileName = path.split("/").pop();
+const images = Object.fromEntries(
+  Object.entries(imageModules).map(([path, src]) => [
+    path.split("/").pop(),
+    src,
+  ])
+);
 
-        return [fileName, mod.default];
-      }
-    )
-  );
+const projects = [
+  {
+    id: 1,
+    title: "VS Portfolio",
+    description:
+      "My personal portfolio showcasing skills, experience, and development journey.",
+    tech: ["HTML", "Custom CSS", "Vanilla JS"],
+    liveLink: "https://vatsalsaxena22.github.io/",
+    githubLink: null,
+    img: images["VS Portfolio.png"],
+  },
+  {
+    id: 2,
+    title: "VS Projects",
+    description:
+      "A curated showcase of all my personal and professional web development projects.",
+    tech: ["React", "Vite", "Tailwind CSS"],
+    liveLink: "https://vsprojects.vercel.app/",
+    githubLink: "https://github.com/vatsalsaxena22/VS-Projects",
+    img: images["VS Projects.png"],
+  },
+  {
+    id: 3,
+    title: "VS Works",
+    description:
+      "An upcoming platform focused on creative work, development experiments, and digital products.",
+    tech: ["Coming Soon"],
+    liveLink: null,
+    githubLink: null,
+    img: images["Coming soon.png"],
+  },
+];
 
-  const projects = [
-    {
-      id: 1,
-      title: "VS Portfolio",
-      description:
-        "My personal portfolio showcasing skills, experience, and development journey.",
-
-      tech: [
-        "HTML",
-        "Custom CSS",
-        "Vanilla JS",
-      ],
-
-      liveLink:
-        "https://vatsalsaxena22.github.io/",
-
-      githubLink: null,
-
-      img: images["VS Portfolio.png"],
-    },
-
-    {
-      id: 2,
-      title: "VS Projects",
-
-      description:
-        "A curated showcase of all my personal and professional web development projects.",
-
-      tech: [
-        "React",
-        "Vite",
-        "Bootstrap 5",
-      ],
-
-      liveLink:
-        "https://vsprojects.vercel.app/",
-
-      githubLink:
-        "https://github.com/vatsalsaxena22/VS-Projects",
-
-      img: images["VS Projects.png"],
-    },
-
-    {
-      id: 3,
-      title: "VS Works",
-
-      description:
-        "An upcoming platform focused on creative work, development experiments, and digital products.",
-
-      tech: [
-        "Coming Soon",
-      ],
-
-      liveLink: "#",
-
-      githubLink: null,
-
-      img: images["Coming soon.png"],
-    },
-  ];
-
+export default function VSTrio() {
   return (
     <section className="py-2">
-
-      <Container>
-
-        <Row className="g-4">
-
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {projects.map((project) => (
-            <Col
-              key={project.id}
-              md={6}
-              lg={4}
-            >
-              <ProjectCard {...project} />
-            </Col>
+            <ProjectCard key={project.id} {...project} />
           ))}
-
-        </Row>
-
-      </Container>
-
+        </div>
+      </div>
     </section>
   );
-};
-
-export default VSTrio;
+}
