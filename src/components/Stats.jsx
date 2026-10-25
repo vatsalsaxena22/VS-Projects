@@ -76,11 +76,9 @@ export default function Stats() {
             MY JOURNEY
           </span>
 
-          <h2 className="mb-5 text-3xl leading-tight font-bold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
+          <h2 className="display-title mb-5">
             A little progress,
-            <span className="block text-gray-400">
-              a lot of learning.
-            </span>
+            <span className="display-title__accent"> a lot of learning.</span>
           </h2>
 
           <p className="mx-auto max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
@@ -143,7 +141,7 @@ export default function Stats() {
                 </p>
 
                 {/* BOTTOM ACCENT */}
-                <div className="absolute right-0 bottom-0 left-0 h-[2px] origin-left scale-x-0 bg-[#233dff] transition-transform duration-300 group-hover:scale-x-100" />
+                <div className="absolute right-0 bottom-0 left-0 h-0.5 origin-left scale-x-0 bg-[#233dff] transition-transform duration-300 group-hover:scale-x-100" />
               </div>
             )
           )}

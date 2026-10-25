@@ -53,7 +53,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+      className="page-section"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* HERO */}
@@ -63,11 +63,8 @@ export default function Contact() {
             Let's Connect
           </span>
 
-          <h1 className="mb-5 text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
-            Let's Build Something
-            <span className="block text-[#233DFF]">
-              Amazing Together.
-            </span>
+          <h1 className="display-title mb-5">
+            Let's Build Something <span className="display-title__accent">Amazing Together.</span>
           </h1>
 
           <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">

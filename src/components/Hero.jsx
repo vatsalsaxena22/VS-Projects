@@ -24,7 +24,7 @@ export default function Hero() {
         className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-blue-100/50 blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-20">
         {/* CONTENT */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
 
@@ -38,14 +38,13 @@ export default function Hero() {
           </div>
 
           {/* HEADING */}
-          <h1 className="mb-6 max-w-2xl text-2xl leading-[1.1] font-bold tracking-tight text-gray-950 sm:text-3xl lg:text-4xl xl:text-5xl">
-            Ideas, experiments
-            <br className="hidden sm:block" />{" "}
-            &amp; <span className="text-main">products.</span>
-            <span className="mt-2 block text-gray-400">
-              Built with curiosity.
-            </span>
+          <h1 className="display-title mb-6 max-w-2xl">
+            Ideas, experiments <span className="display-title__accent">&amp; products.</span>
           </h1>
+
+          <p className="-mt-3 mb-6 text-sm font-semibold tracking-[0.08em] text-gray-400 uppercase sm:text-base">
+            Built with curiosity.
+          </p>
 
           {/* DESCRIPTION */}
           <p className="mb-8 max-w-xl text-base leading-8 text-gray-600 sm:text-lg">
@@ -109,7 +108,7 @@ export default function Hero() {
           {/* Decorative frame */}
           <div
             aria-hidden="true"
-            className="absolute inset-4 rounded-4xl border border-gray-100 bg-gray-50/70 sm:inset-8"
+            className="absolute inset-4  sm:inset-8"
           />
 
           <img
@@ -120,26 +119,6 @@ export default function Hero() {
             decoding="async"
           />
 
-          {/* Floating label */}
-          <div className="absolute bottom-3 left-1 z-20 rounded-xl border border-gray-200 bg-white/95 px-4 py-3 shadow-lg sm:bottom-8 sm:left-0">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <FontAwesomeIcon
-                  icon={faCode}
-                  aria-hidden="true"
-                />
-              </div>
-
-              <div>
-                <p className="mb-0 text-sm font-semibold text-gray-900">
-                  Built from scratch
-                </p>
-                <p className="mb-0 text-xs text-gray-500">
-                  One idea at a time
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

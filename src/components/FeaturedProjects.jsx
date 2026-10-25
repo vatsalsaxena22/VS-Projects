@@ -24,9 +24,8 @@ export default function FeaturedProjects() {
             Featured Work
           </span>
 
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
-            Selected Projects
-            <span className="text-[#233DFF]">.</span>
+          <h2 className="display-title mb-4">
+            Selected <span className="display-title__accent">Projects.</span>
           </h2>
 
           <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">

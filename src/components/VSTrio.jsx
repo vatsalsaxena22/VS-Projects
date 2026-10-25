@@ -22,8 +22,8 @@ const projects = [
       "My personal portfolio showcasing skills, experience, and development journey.",
     tech: ["HTML", "Custom CSS", "Vanilla JS"],
     liveLink: "https://vatsalsaxena22.github.io/",
-    githubLink: null,
-    img: images["VS Portfolio.png"],
+    githubLink: "https://github.com/vatsalsaxena22/vatsalsaxena22.github.io",
+    img: images["Portfolio.png"],
   },
   {
     id: 2,
@@ -33,16 +33,16 @@ const projects = [
     tech: ["React", "Vite", "Tailwind CSS"],
     liveLink: "https://vsprojects.vercel.app/",
     githubLink: "https://github.com/vatsalsaxena22/VS-Projects",
-    img: images["VS Projects.png"],
+    img: images["Projects.png"],
   },
   {
     id: 3,
     title: "VS Works",
     description:
       "An upcoming platform focused on creative work, development experiments, and digital products.",
-    tech: ["Coming Soon"],
-    liveLink: null,
-    githubLink: null,
+    tech: ["Next.js", "Tailwind CSS", "Shadcn UI"],
+    liveLink: "https://vsworks.vercel.app/",
+    githubLink: "https://github.com/vatsalsaxena22/VS-Works",
     img: images["Coming soon.png"],
   },
 ];

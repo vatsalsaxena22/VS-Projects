@@ -38,7 +38,11 @@ const techLinks = [
     external: true,
   },
   { label: "VS Projects", to: "/" },
-  { label: "VS Works", href: null },
+  { 
+    label: "VS Works",
+    href: "https://vsworks.vercel.app/",
+    external: true 
+  },
 ];
 
 const menuLinks = [
@@ -54,11 +58,6 @@ const linkClass =
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-gray-200 bg-white">
-      {/* TOP ACCENT */}
-      <div
-        className="h-1 w-full bg-gradient-to-r from-[#233DFF] via-[#6879FF] to-transparent"
-        aria-hidden="true"
-      />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* MAIN FOOTER */}
@@ -91,9 +90,9 @@ export default function Footer() {
             </NavLink>
 
             <p className="mb-6 max-w-md text-sm leading-7 text-gray-600 sm:text-base">
-              A curated collection of personal projects, experiments,
-              and professional work built with creativity, clean code,
-              and modern technology.
+              A curated collection of personal projects, experiments, and
+              professional work built with creativity, clean code, and modern
+              technology.
             </p>
 
             {/* SOCIAL LINKS */}
@@ -146,11 +145,7 @@ export default function Footer() {
                       key={link.label}
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
-                      rel={
-                        link.external
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
+                      rel={link.external ? "noopener noreferrer" : undefined}
                       className={linkClass}
                     >
                       {link.label}

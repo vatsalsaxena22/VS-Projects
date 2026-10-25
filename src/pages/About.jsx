@@ -8,14 +8,13 @@ import {
   faCode,
   faBolt,
   faLayerGroup,
-  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+      className="page-section"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* HERO */}
@@ -25,9 +24,8 @@ export default function About() {
             About Me
           </span>
 
-          <h1 className="mb-5 text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
-            Building Ideas Into
-            <span className="block text-[#233DFF]">Digital Experiences.</span>
+          <h1 className="display-title mb-5">
+            Building Ideas Into <span className="display-title__accent">Digital Experiences.</span>
           </h1>
 
           <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
@@ -147,9 +145,8 @@ export default function About() {
             My Ecosystem
           </span>
 
-          <h2 className="mb-5 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
-            My Tech Trio
-            <span className="text-[#233DFF]">.</span>
+          <h2 className="display-title mb-5">
+            My Tech <span className="display-title__accent">Trio.</span>
           </h2>
 
           <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">

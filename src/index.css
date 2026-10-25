@@ -14,17 +14,17 @@
   /* Base */
   --light: #fff;
   --dark: #000;
-  --bg-color: #f8f9fc;
+  --bg-color: #f6f7fb;
   --surface-color: #fff;
 
   /* Text */
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --text-muted: #6b7280;
+  --text-primary: #172033;
+  --text-secondary: #536077;
+  --text-muted: #778197;
 
   /* Borders */
-  --border-color: #e5e7eb;
-  --border-dark: #d1d5db;
+  --border-color: #e2e6ef;
+  --border-dark: #cdd4e1;
 
   /* Semantic */
   --success: #15803d;
@@ -66,9 +66,9 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px #0000000d;
-  --shadow-md: 0 4px 16px #0000000f;
-  --shadow-lg: 0 12px 32px #00000014;
+  --shadow-sm: 0 2px 7px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.07);
+  --shadow-lg: 0 20px 48px rgba(15, 23, 42, 0.11);
 
   /* Motion */
   --transition: 0.3s ease;
@@ -91,7 +91,9 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.7;
   color: var(--text-primary);
-  background-color: var(--bg-color);
+  background:
+    radial-gradient(circle at 92% -5%, rgba(35, 61, 255, 0.075), transparent 28rem),
+    var(--bg-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -140,6 +142,27 @@ p {
 a {
   transition: color var(--transition-fast);
 }
+
+main { min-height: calc(100vh - 18rem); }
+
+.page-section { position: relative; overflow: hidden; background: transparent; padding-block: clamp(4rem, 8vw, 7rem); }
+
+.eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(35, 61, 255, 0.14); border-radius: var(--radius-full); background: rgba(35, 61, 255, 0.055); padding: 0.45rem 0.85rem; color: var(--main-color); font-size: 0.72rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.surface-card { border: 1px solid var(--border-color); border-radius: var(--radius-xl); background: rgba(255, 255, 255, 0.94); box-shadow: var(--shadow-sm); }
+
+.section-title { color: var(--text-primary); font-weight: 750; letter-spacing: -0.045em; }
+
+/* One display scale for every page and section heading. */
+.display-title {
+  color: var(--text-primary);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.052em;
+}
+
+.display-title__accent { color: var(--main-color); }
 /* ==============================
    MAIN BUTTON
 ============================== */
