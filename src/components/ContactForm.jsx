@@ -168,7 +168,7 @@ export default function ContactForm() {
           type="submit"
           disabled={loading}
           aria-label="Send Message"
-          className="main-btn inline-flex w-full items-center justify-center px-6 py-3 font-semibold text-light disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+          className="main-btn disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         >
           {loading ? "Sending..." : "Send Message"}
         </button>

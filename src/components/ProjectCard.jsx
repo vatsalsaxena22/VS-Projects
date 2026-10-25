@@ -29,7 +29,7 @@ export default function ProjectCard({
           {tech.map((tag, idx) => (
             <span
               key={`${tag}-${idx}`}
-              className="main-badge font-normal"
+              className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-2 py-1 text-xs font-semibold uppercase tracking-widest text-[#233DFF]"
             >
               {tag}
             </span>
@@ -42,7 +42,7 @@ export default function ProjectCard({
         </h3>
 
         {/* DESCRIPTION */}
-        <p className="mb-6 text-sm leading-7 text-gray-600">
+        <p className="mb-3 text-sm leading-7 text-gray-600">
           {description}
         </p>
 
@@ -53,7 +53,7 @@ export default function ProjectCard({
               href={liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="main-btn inline-flex items-center gap-2"
+              className="main-btn"
               aria-label={`View ${title} live project`}
             >
               Live <span aria-hidden="true">↗</span>
@@ -65,7 +65,7 @@ export default function ProjectCard({
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="main-btn btn-white inline-flex items-center gap-2"
+              className="main-btn btn-white"
               aria-label={`View ${title} source code`}
             >
               Code <span aria-hidden="true">↗</span>

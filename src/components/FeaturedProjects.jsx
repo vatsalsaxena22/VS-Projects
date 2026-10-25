@@ -1,33 +1,38 @@
-
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 
 import projects from "../data/projects";
 import ProjectCard from "./ProjectCard";
 
 const featuredProjects = projects
   .filter((project) => project.featured)
-  .slice(-3);
+  .slice(-3)
+  .reverse();
 
 export default function FeaturedProjects() {
   return (
-    <section className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+    <section
+      id="featured-projects"
+      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* SECTION HEADER */}
         <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-14">
-          <span className="main-badge mb-4 inline-block">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#233DFF]">
+            <FontAwesomeIcon icon={faLayerGroup} aria-hidden="true" />
             Featured Work
           </span>
 
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
             Selected Projects
+            <span className="text-[#233DFF]">.</span>
           </h2>
 
           <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
-            A collection of projects that highlight my skills in
-            frontend development, full-stack applications,
-            and modern UI design.
+            A curated collection of projects, experiments, and digital
+            products showcasing my approach to frontend development,
+            full-stack engineering, and thoughtful UI design.
           </p>
         </div>
 
@@ -39,21 +44,24 @@ export default function FeaturedProjects() {
             ))}
           </div>
         ) : (
-          <p className="py-10 text-center text-gray-500">
-            Featured projects will be available soon.
-          </p>
+          <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-5 py-14 text-center">
+            <p className="text-sm font-medium text-gray-500">
+              Featured projects are coming soon.
+            </p>
+          </div>
         )}
 
         {/* CTA */}
         <div className="mt-12 text-center sm:mt-14">
           <NavLink
             to="/projects"
-            className="main-btn btn-white inline-flex items-center gap-2"
+            className="main-btn btn-white"
           >
             View All Projects
             <FontAwesomeIcon
               icon={faArrowRight}
               aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-1"
             />
           </NavLink>
         </div>

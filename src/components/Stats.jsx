@@ -15,7 +15,11 @@ const getDaysOfExperience = () => {
   const startDate = Date.UTC(2023, 9, 1);
   const now = new Date();
 
-  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const today = Date.UTC(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate()
+  );
 
   return Math.floor((today - startDate) / 86400000);
 };
@@ -24,25 +28,29 @@ const stats = [
   {
     end: projects.length,
     suffix: "+",
-    label: "Projects Completed",
+    label: "Projects",
+    description: "Ideas brought to life",
     icon: faFolderOpen,
   },
   {
     end: skills.length,
     suffix: "+",
-    label: "Programming Skills",
+    label: "Technologies & Skills",
+    description: "Tools in my developer toolkit",
     icon: faCode,
   },
   {
     end: getDaysOfExperience(),
     suffix: "+",
-    label: "Days Since My Journey Began",
+    label: "Days of Building",
+    description: "Since October 2023",
     icon: faCalendarCheck,
   },
   {
     end: 100,
     suffix: "%",
     label: "Passion for Development",
+    description: "Driven by curiosity",
     icon: faBolt,
   },
 ];
@@ -56,55 +64,95 @@ export default function Stats() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-gray-50 py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden border-y border-gray-100 bg-gray-50/70 py-16 sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-14">
-          <span className="main-badge mb-4 inline-block">My Journey</span>
 
-          <h2 className="mb-4 text-3xl leading-tight font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Numbers That Reflect My Growth
+        {/* SECTION HEADER */}
+        <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-14">
+
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#233dff]">
+            <span className="size-1.5 rounded-full bg-[#233dff]" />
+            MY JOURNEY
+          </span>
+
+          <h2 className="mb-5 text-3xl leading-tight font-bold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
+            A little progress,
+            <span className="block text-gray-400">
+              a lot of learning.
+            </span>
           </h2>
 
-          <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
-            A quick overview of my experience, technical skills, and development
-            journey as a full-stack web developer.
+          <p className="mx-auto max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+            Every project is another opportunity to learn,
+            experiment, and turn ideas into something real.
+            Here's a snapshot of my journey so far.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          {stats.map(({ end, suffix, label, icon }) => (
-            <div
-              key={label}
-              className="flex h-full flex-col items-center rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-shadow hover:shadow-md sm:p-7"
-            >
-              <div className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-[#233dff]/10 text-[#233dff] sm:size-17.5">
-                <FontAwesomeIcon
-                  icon={icon}
-                  className="text-2xl sm:text-[28px]"
-                  aria-hidden="true"
-                />
+        {/* STATS GRID */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+          {stats.map(
+            ({ end, suffix, label, description, icon }, index) => (
+              <div
+                key={label}
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_2px_12px_rgba(15,23,42,0.025)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_12px_30px_rgba(35,61,255,0.07)] sm:p-7"
+              >
+                {/* TOP ROW */}
+                <div className="mb-7 flex items-center justify-between">
+                  <div className="flex size-12 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-[#233dff] transition-transform duration-300 group-hover:scale-105">
+                    <FontAwesomeIcon
+                      icon={icon}
+                      className="text-xl"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <span className="text-xs font-semibold tracking-widest text-gray-300">
+                    0{index + 1}
+                  </span>
+                </div>
+
+                {/* VALUE */}
+                <div
+                  className="mb-2 text-4xl leading-none font-bold tracking-tight text-gray-950 sm:text-5xl"
+                  aria-label={`${end}${suffix} ${label}`}
+                >
+                  <span className="text-[#233dff]">
+                    {inView ? (
+                      <CountUp
+                        end={end}
+                        suffix={suffix}
+                        duration={2.5}
+                        separator=","
+                        enableScrollSpy={false}
+                      />
+                    ) : (
+                      "0"
+                    )}
+                  </span>
+                </div>
+
+                {/* LABEL */}
+                <h3 className="mb-2 text-base font-semibold tracking-tight text-gray-900 sm:text-lg">
+                  {label}
+                </h3>
+
+                <p className="mt-auto mb-0 text-sm leading-6 text-gray-500">
+                  {description}
+                </p>
+
+                {/* BOTTOM ACCENT */}
+                <div className="absolute right-0 bottom-0 left-0 h-[2px] origin-left scale-x-0 bg-[#233dff] transition-transform duration-300 group-hover:scale-x-100" />
               </div>
-
-              <h3 className="mb-2 text-3xl font-bold tracking-tight text-main sm:text-4xl">
-                {inView ? (
-                  <CountUp
-                    end={end}
-                    suffix={suffix}
-                    duration={2.5}
-                    separator=","
-                  />
-                ) : (
-                  "0"
-                )}
-              </h3>
-
-              <p className="mb-0 text-sm leading-6 font-medium text-gray-600 sm:text-base">
-                {label}
-              </p>
-            </div>
-          ))}
+            )
+          )}
         </div>
+
+        {/* FOOTNOTE */}
+        <p className="mt-6 text-center text-xs leading-5 text-gray-400">
+          A growing collection of projects, experiments, and lessons.
+        </p>
       </div>
     </section>
   );

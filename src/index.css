@@ -1,21 +1,122 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
+/* ==============================
+   DESIGN SYSTEM
+============================== */
 
 :root {
+  /* Brand */
   --main-color: #233dff;
   --second-color: #233dff22;
+  --main-hover: #1932e6;
+
+  /* Base */
   --light: #fff;
   --dark: #000;
+  --bg-color: #f8f9fc;
+  --surface-color: #fff;
+
+  /* Text */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+
+  /* Borders */
+  --border-color: #e5e7eb;
+  --border-dark: #d1d5db;
+
+  /* Semantic */
+  --success: #15803d;
+  --success-bg: #f0fdf4;
+  --success-border: #bbf7d0;
+
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+
+  --warning: #a16207;
+  --warning-bg: #fffbeb;
+  --warning-border: #fde68a;
+
+  --info: #1d4ed8;
+  --info-bg: #eff6ff;
+  --info-border: #bfdbfe;
+
+  /* Typography */
+  --font-family: "Inter", sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing */
+  --section-space: clamp(3rem, 7vw, 6rem);
+  --container-width: 1200px;
+
+  /* Radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px #0000000d;
+  --shadow-md: 0 4px 16px #0000000f;
+  --shadow-lg: 0 12px 32px #00000014;
+
+  /* Motion */
   --transition: 0.3s ease;
+  --transition-fast: 0.15s ease;
 }
+
+/* ==============================
+   BASE STYLES
+============================== */
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 ::selection {
@@ -23,13 +124,25 @@ body {
   color: var(--light);
 }
 
-.text-main {
-  color: var(--main-color);
+:focus-visible {
+  outline: 3px solid var(--main-color);
+  outline-offset: 3px;
 }
 
-.bg-main {
-  background-color: var(--main-color);
+/* ==============================
+   TYPOGRAPHY
+============================== */
+
+p {
+  color: inherit;
 }
+
+a {
+  transition: color var(--transition-fast);
+}
+/* ==============================
+   MAIN BUTTON
+============================== */
 
 .main-btn {
   background-color: var(--main-color);
@@ -41,12 +154,27 @@ body {
   box-shadow: 4px 4px 0px 0px var(--dark);
   transition: var(--transition);
   text-decoration: none;
-  display: inline-block;
+
+  /* Same appearance for <a> and <button> */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  vertical-align: middle;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
 }
+
 .main-btn:hover {
   background-color: var(--main-color);
   color: var(--light);
 }
+
 .main-btn:active {
   transform: translate(2px, 2px);
   background-color: var(--main-color) !important;
@@ -54,45 +182,41 @@ body {
   color: var(--light) !important;
 }
 
+/* ==============================
+   WHITE BUTTON
+============================== */
+
 .btn-white {
   background-color: var(--light);
   color: var(--dark);
   border-color: var(--dark);
 }
+
 .btn-white:hover {
   background-color: var(--light);
   color: var(--dark);
   border-color: var(--dark);
 }
+
 .btn-white:active {
   background-color: var(--light) !important;
   border-color: var(--dark) !important;
   color: var(--dark) !important;
 }
 
-.main-badge {
-  background-color: var(--second-color);
-  color: var(--main-color);
-  padding: 5px 10px;
-  border-radius: 20px;
-  margin-right: 5px;
+/* ==============================
+   BUTTON FOCUS
+============================== */
+
+.main-btn:focus-visible {
+  outline: 3px solid var(--main-color);
+  outline-offset: 4px;
 }
 
-.hero-section p {
-  font-size: 15px;
-  text-align: justify;
-}
-.hero-section h1 {
-  font-size: 2.5rem;
-}
-
-.stats h2 {
-  color: var(--main-color);
-}
-
-.logos a:hover {
-  color: var(--main-color);
-}
+/* ==============================
+   STATUS MESSAGES
+   Original design preserved
+============================== */
 
 .status-message {
   margin-top: 1rem;
@@ -120,15 +244,20 @@ body {
   border: 1px solid #ffeeba;
 }
 
-footer a {
-  color: var(--dark);
-  transition: var(--transition) !important;
-  text-decoration: none;
+/* ==============================
+   ACCESSIBILITY
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
-footer a:hover {
-  color: var(--main-color);
-}
-
-
-/* -------------------- */
-
