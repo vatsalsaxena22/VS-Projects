@@ -1,4 +1,5 @@
 import ContactForm from "../components/ContactForm";
+import teamCollaboration from "../assets/svg/team-collaboration.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -139,6 +140,14 @@ export default function Contact() {
                 ))}
               </div>
 
+              <img
+                src={teamCollaboration}
+                alt="Illustration of people collaborating on a digital project"
+                loading="lazy"
+                decoding="async"
+                className="mx-auto my-1 h-40 w-full max-w-xs object-contain"
+              />
+
               {/* AVAILABILITY CARD */}
               <div className="relative mt-auto rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
                 <div className="mb-4 flex items-center gap-3">
@@ -197,7 +206,7 @@ export default function Contact() {
 
           {/* RIGHT: CONTACT FORM */}
           <div className="lg:col-span-7">
-            <div className="h-full rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+            <div className="h-auto rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
               <div className="mb-7">
                 <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#233DFF]">
                   <FontAwesomeIcon icon={faComments} aria-hidden="true" />

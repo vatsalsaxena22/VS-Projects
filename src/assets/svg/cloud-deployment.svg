@@ -1,1 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360"><ellipse cx="240" cy="325" rx="174" ry="11" fill="#e0e5ec"/><path d="M130 214c-32 0-56-22-56-51 0-26 19-47 46-51 10-40 45-67 88-67 39 0 72 24 85 60 8-4 17-6 27-6 34 0 61 26 61 59s-27 56-61 56z" fill="#e0e5ec" stroke="#263238" stroke-width="3"/><path d="M240 91v106m-34-72 34-34 34 34" fill="none" stroke="#233dff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="119" y="215" width="242" height="82" rx="10" fill="#263238"/><rect x="131" y="227" width="218" height="57" rx="5" fill="#fff"/><g fill="#233dff"><rect x="145" y="240" width="52" height="7" rx="3"/><rect x="145" y="254" width="91" height="6" rx="3" opacity=".5"/><rect x="145" y="267" width="68" height="6" rx="3" opacity=".3"/></g><circle cx="326" cy="255" r="16" fill="#233dff22"/><path d="M318 255l6 6 11-13" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M91 251l-17 17 17 17m24-34 17 17-17 17" fill="none" stroke="#233dff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="387" cy="104" r="22" fill="#ffbe9d"/><path d="M387 92v24m-12-12h24" stroke="#fff" stroke-width="4" stroke-linecap="round"/><text x="240" y="315" text-anchor="middle" font-family="monospace" font-size="13" fill="#455a64">DEPLOY WITH CONFIDENCE</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" fill="none">
+  <defs>
+    <linearGradient id="wash" x1="53" y1="44" x2="424" y2="319" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF1FF"/>
+      <stop offset="1" stop-color="#F8F9FF"/>
+    </linearGradient>
+    <filter id="shadow" x="73" y="187" width="341" height="142" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="8"/><feGaussianBlur stdDeviation="8"/><feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.075 0 0 0 0 0.11 0 0 0 0 0.34 0 0 0 0.12 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+  <circle cx="240" cy="180" r="151" fill="url(#wash)"/>
+  <circle cx="366" cy="92" r="18" fill="#233DFF" opacity=".13"/>
+  <circle cx="111" cy="96" r="7" fill="#233DFF"/>
+  <path d="M125 154c-25 0-44-17-44-39 0-21 16-37 37-40 8-31 35-53 69-53 31 0 57 19 67 48 7-3 14-5 22-5 27 0 48 20 48 46s-21 43-48 43H125Z" fill="#fff" stroke="#10131C" stroke-width="3"/>
+  <path d="M240 82v90m-29-29 29-29 29 29" stroke="#233DFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+  <g filter="url(#shadow)">
+    <rect x="96" y="202" width="288" height="91" rx="15" fill="#10131C"/>
+    <rect x="108" y="214" width="264" height="67" rx="9" fill="#fff"/>
+    <rect x="125" y="230" width="83" height="8" rx="4" fill="#233DFF"/>
+    <rect x="125" y="247" width="132" height="6" rx="3" fill="#CBD2E0"/>
+    <rect x="125" y="261" width="98" height="6" rx="3" fill="#E0E4ED"/>
+    <circle cx="337" cy="247" r="20" fill="#EEF1FF"/>
+    <path d="m328 247 7 7 13-15" stroke="#233DFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  </g>
+  <path d="M73 174h31m-10-10 10 10-10 10m312 0h-29m10-10-10 10 10 10" stroke="#10131C" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" opacity=".36"/>
+  <path d="M178 315h124" stroke="#10131C" stroke-linecap="round" stroke-width="3" opacity=".16"/>
+</svg>

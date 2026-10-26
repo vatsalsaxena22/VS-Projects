@@ -59,7 +59,7 @@ const menuLinks = [
 ];
 
 const headingClass =
-  "mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400";
+  "mb-6 text-[11px] font-bold uppercase tracking-[0.2em]";
 
 const linkClass =
   "group inline-flex w-fit items-center gap-2.5 text-sm text-gray-500 no-underline transition-all duration-200 hover:translate-x-1 hover:text-[#233DFF] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#233DFF]";
@@ -67,11 +67,7 @@ const linkClass =
 export default function Footer() {
   return (
     <footer className="relative isolate overflow-hidden border-t border-gray-200/80 bg-white">
-      {/* Subtle ambient accent */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/2 -z-10 size-96 -translate-x-1/2 rounded-full bg-[#233DFF]/4.5 blur-3xl"
-      />
+      
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* FOOTER MAIN */}
         <div className="grid grid-cols-1 gap-12 py-14 sm:py-16 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 lg:py-20">
@@ -256,7 +252,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      z
     </footer>
   );
 }

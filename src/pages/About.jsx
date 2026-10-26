@@ -1,6 +1,12 @@
 import myPic from "../assets/Profile.jpg";
 import VSTrio from "../components/VSTrio";
 import skills from "../data/skills";
+import webDevelopment from "../assets/svg/web-development.svg";
+import creativeDesign from "../assets/svg/creative-design.svg";
+import cloudDeployment from "../assets/svg/cloud-deployment.svg";
+import databaseSystems from "../assets/svg/database-systems.svg";
+import mobileApp from "../assets/svg/mobile-app.svg";
+import teamCollaboration from "../assets/svg/team-collaboration.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,6 +15,39 @@ import {
   faBolt,
   faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons";
+
+const buildAreas = [
+  {
+    title: "Web development",
+    description: "Responsive web experiences built to work beautifully.",
+    image: webDevelopment,
+  },
+  {
+    title: "Creative design",
+    description: "Clear, thoughtful interfaces with a distinct visual style.",
+    image: creativeDesign,
+  },
+  {
+    title: "Cloud deployment",
+    description: "Taking digital products from local builds to the web.",
+    image: cloudDeployment,
+  },
+  {
+    title: "Database systems",
+    description: "Organizing application data into dependable foundations.",
+    image: databaseSystems,
+  },
+  {
+    title: "Mobile experiences",
+    description: "Interfaces designed to feel natural on smaller screens.",
+    image: mobileApp,
+  },
+  {
+    title: "Team collaboration",
+    description: "Sharing ideas and building better products together.",
+    image: teamCollaboration,
+  },
+];
 
 export default function About() {
   return (
@@ -132,6 +171,52 @@ export default function About() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* BUILD AREAS */}
+        <div className="my-16 sm:my-20">
+          <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#233DFF]">
+              <FontAwesomeIcon icon={faCode} aria-hidden="true" />
+              What I Build
+            </span>
+
+            <h2 className="display-title mb-5">
+              Ideas across <span className="display-title__accent">the stack.</span>
+            </h2>
+
+            <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+              From the first interface to the systems behind it, these are
+              some of the areas that shape my work.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            {buildAreas.map(({ title, description, image }) => (
+              <article
+                key={title}
+                className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#233DFF]/25 hover:shadow-[0_12px_30px_rgba(35,61,255,0.08)]"
+              >
+                <div className="flex h-44 items-center justify-center overflow-hidden bg-[#F5F6FF] p-3">
+                  <img
+                    src={image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="mb-1.5 text-base font-bold tracking-tight text-gray-950">
+                    {title}
+                  </h3>
+                  <p className="text-sm leading-6 text-gray-600">
+                    {description}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
 

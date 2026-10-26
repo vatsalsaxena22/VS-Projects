@@ -12,6 +12,7 @@ import {
 
 import projects from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
+import mobileAppIllustration from "../assets/svg/mobile-app.svg";
 
 const ALL = "All";
 
@@ -147,18 +148,28 @@ const Projects = () => {
             </div>
 
             {stats.length > 0 && (
-              <dl className="grid grid-flow-col auto-cols-fr divide-x divide-gray-200 overflow-hidden rounded-2xl border border-gray-200 bg-white/90 shadow-sm backdrop-blur-sm">
-                {stats.map(({ value, label }) => (
-                  <div key={label} className="px-4 py-5 sm:px-6 sm:py-6">
-                    <dd className="text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
-                      {value}
-                    </dd>
-                    <dt className="mt-1 text-sm font-medium text-gray-500">
-                      {label}
-                    </dt>
-                  </div>
-                ))}
-              </dl>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <img
+                  src={mobileAppIllustration}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  className="hidden h-28 w-20 shrink-0 object-contain lg:block"
+                />
+                <dl className="grid min-w-0 flex-1 grid-flow-col auto-cols-fr divide-x divide-gray-200 overflow-hidden rounded-2xl border border-gray-200 bg-white/90 shadow-sm backdrop-blur-sm">
+                  {stats.map(({ value, label }) => (
+                    <div key={label} className="px-4 py-5 sm:px-6 sm:py-6">
+                      <dd className="text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+                        {value}
+                      </dd>
+                      <dt className="mt-1 text-sm font-medium text-gray-500">
+                        {label}
+                      </dt>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             )}
           </div>
         </div>
