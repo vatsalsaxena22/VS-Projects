@@ -39,11 +39,11 @@ const projects = [
     id: 3,
     title: "VS Works",
     description:
-      "An upcoming platform focused on creative work, development experiments, and digital products.",
+      "A platform focused on creative work, development experiments, and digital products.",
     tech: ["Next.js", "Tailwind CSS", "Shadcn UI"],
     liveLink: "https://vsworks.vercel.app/",
     githubLink: "https://github.com/vatsalsaxena22/VS-Works",
-    img: images["Coming soon.png"],
+    img: images["Works.png"],
   },
 ];
 

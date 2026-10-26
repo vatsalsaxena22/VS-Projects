@@ -31,7 +31,7 @@ const navLinks = [
 const socialLinks = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/91XXXXXXXXXX",
+    href: "https://wa.me/919956304705",
     icon: faWhatsapp,
   },
   {
@@ -41,12 +41,12 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/your-handle",
+    href: "https://linkedin.com/in/vatsalsaxena/",
     icon: faLinkedinIn,
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/your-handle",
+    href: "https://www.instagram.com/vatsal.saxena/",
     icon: faInstagram,
   },
 ];

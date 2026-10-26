@@ -11,8 +11,8 @@ import heroImg from "../assets/programming.svg";
 
 const techStack = [
   "React.js",
+  "Vite",
   "Tailwind CSS",
-  "Full-Stack Development",
 ];
 
 export default function Hero() {

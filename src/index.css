@@ -72,7 +72,6 @@
 
   /* Motion */
   --transition: 0.3s ease;
-  --transition-fast: 0.15s ease;
 }
 
 /* ==============================
@@ -139,9 +138,6 @@ p {
   color: inherit;
 }
 
-a {
-  transition: color var(--transition-fast);
-}
 
 main { min-height: calc(100vh - 18rem); }
 

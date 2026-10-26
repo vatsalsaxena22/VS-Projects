@@ -151,7 +151,7 @@ export default function About() {
 
           <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
             Three connected spaces for my developer profile, projects,
-            and creative journey across the web.
+            and works across the web.
           </p>
         </div>
 

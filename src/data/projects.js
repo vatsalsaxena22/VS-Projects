@@ -1,4 +1,4 @@
-const imageModules = import.meta.glob('../assets/Project Imgs/*.png', {
+const imageModules = import.meta.glob("../assets/Project Imgs/*.png", {
   eager: true,
 });
 
@@ -6,7 +6,7 @@ const images = Object.fromEntries(
   Object.entries(imageModules).map(([path, mod]) => {
     const fileName = path.split("/").pop();
     return [fileName, mod.default];
-  })
+  }),
 );
 
 const projects = [
@@ -18,7 +18,7 @@ const projects = [
     liveLink: "https://vatsalsaxena22.github.io/alphabet-v2.0/",
     githubLink: "https://github.com/vatsalsaxena22/alphabet-v2.0",
     featured: true,
-    img: images['Alphabet v2.0.png'],
+    img: images["Alphabet v2.0.png"],
   },
   {
     id: 2,
@@ -32,86 +32,52 @@ const projects = [
   },
   {
     id: 3,
-    title: "NCERT Books Webpage",
-    description: "CLone of NCERT Books Official Webpage.",
-    tech: ["HTML", "CSS"],
-    liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/NCERT%20Clone/",
-    githubLink: "",
-    featured: true,
-    img: images["NCERT Clone.png"],
-  },
-  {
-    id: 4,
-    title: "Netflix Homepage",
-    description: "Clone of Netflix Homepage",
-    tech: ["HTML", "CSS"],
-    liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Netflix%20Clone/",
-    githubLink: "",
-    featured: true,
-    img: images["Netflix Clone.png"],
-  },
-  {
-    id: 5,
     title: "Calculator",
     description: "A Basic Calculator",
     tech: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Calculator%20Web/",
-    githubLink: "",
+    liveLink:
+      "https://vatsalsaxena22.github.io/myPortfolio/projects/Calculator%20Web/",
+    githubLink:
+      "https://github.com/vatsalsaxena22/myPortfolio/blob/master/projects/Calculator%20Web/index.html",
     featured: true,
     img: images["Calculator App.png"],
   },
   {
-    id: 6,
+    id: 4,
     title: "Stone Papper Scissors",
     description: "Stone Paper Scissors Web Game",
     tech: ["HTML", "CSS", "JavaScript"],
     liveLink: "https://vatsalsaxena22.github.io/first-school/spsGame.html",
-    githubLink: "",
+    githubLink:
+      "https://github.com/vatsalsaxena22/first-school/blob/master/spsGame.html",
     featured: true,
     img: images["SPS.png"],
   },
   {
-    id: 7,
+    id: 5,
     title: "Voting Machine",
     description: "A Web App for Voting.",
     tech: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Voting%20Machine/",
-    githubLink: "",
+    liveLink:
+      "https://vatsalsaxena22.github.io/myPortfolio/projects/Voting%20Machine/",
+    githubLink:
+      "https://github.com/vatsalsaxena22/myPortfolio/tree/master/projects/Voting%20Machine",
     featured: true,
     img: images["Voting Machine.png"],
   },
   {
-    id: 8,
+    id: 6,
     title: "Metro Ticket System",
     description: "Make Metro Ticket with discount logic.",
     tech: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Metro%20Ticket%20System/",
-    githubLink: "",
+    liveLink:
+      "https://vatsalsaxena22.github.io/myPortfolio/projects/Metro%20Ticket%20System/",
+    githubLink: "https://github.com/vatsalsaxena22/myPortfolio/tree/master/projects/Metro%20Ticket%20System",
     featured: true,
     img: images["Metro Ticket.png"],
   },
   {
-    id: 9,
-    title: "Flipkart Cart System",
-    description: "Clone of Flipkart Cart System",
-    tech: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://vatsalsaxena22.github.io/myPortfolio/projects/Flipkart%20Clone/",
-    githubLink: "",
-    featured: true,
-    img: images["Flipkart.png"],
-  },
-  {
-    id: 10,
-    title: "HTML Complete Notes",
-    description: "A Complete Notes of HTML",
-    tech: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://vatsalsaxena22.github.io/HTML/",
-    githubLink: "https://github.com/vatsalsaxena22/HTML",
-    featured: true,
-    img: images["HTML.png"],
-  },
-  {
-    id: 11,
+    id: 7,
     title: "GitHub Pages with Jekyll",
     description: "A Guide for making a Complete Website by Markdown.",
     tech: ["Markdown"],
@@ -121,7 +87,37 @@ const projects = [
     img: images["Github-Jekyll.png"],
   },
   {
-    id: 12,
+    id: 8,
+    title: "HTML Complete Notes",
+    description: "A Complete Notes of HTML",
+    tech: ["HTML", "CSS", "JavaScript"],
+    liveLink: "https://vatsalsaxena22.github.io/HTML/",
+    githubLink: "https://github.com/vatsalsaxena22/HTML",
+    featured: true,
+    img: images["HTML.png"],
+  },
+  {
+    id: 9,
+    title: "CSS Complete Notes",
+    description: "A Complete Notes of CSS",
+    tech: ["HTML", "CSS", "JavaScript"],
+    liveLink: "https://vatsalsaxena22.github.io/CSS/",
+    githubLink: "https://github.com/vatsalsaxena22/CSS",
+    featured: true,
+    img: images["CSS.png"],
+  },
+  {
+    id: 10,
+    title: "CSS Frameworks Battle",
+    description: "A Battle of CSS Frameworks",
+    tech: ["HTML", "CSS", "JavaScript"],
+    liveLink: "https://vatsalsaxena22.github.io/css-frameworks-battle/",
+    githubLink: "https://github.com/vatsalsaxena22/css-frameworks-battle",
+    featured: true,
+    img: images["CFB.png"],
+  },
+  {
+    id: 11,
     title: "JavaScript",
     description: "JavaScript Exercises and Projects",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -131,11 +127,12 @@ const projects = [
     img: images["JavaScript.png"],
   },
   {
-    id: 13,
+    id: 12,
     title: "JS Quiz App",
     description: "JavaScript Quiz App",
     tech: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://vatsalsaxena22.github.io/JavaScripts/JavaScript/Basics/Project/index.html",
+    liveLink:
+      "https://vatsalsaxena22.github.io/JavaScripts/JavaScript/Basics/Project/index.html",
     githubLink: "https://github.com/vatsalsaxena22/JavaScripts",
     featured: true,
     img: images["JS Quiz App.png"],
